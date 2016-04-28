@@ -13,8 +13,8 @@ export default class KoaMagnet extends Base {
   }
 
   async start() {
-    if (this.koaConfig.listen) {
-      this.app.application.listen(this.koaConfig.listen);
+    if (this.koaConfig.port) {
+      this.app.application.listen(this.koaConfig.port);
     }
   }
 }

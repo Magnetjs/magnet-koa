@@ -21,6 +21,6 @@ srever/config/koa.js
 ```
 export default {
   // If listen provided then only it will start as server
-  listen: 3000
+  port: 3000
 }
 ```

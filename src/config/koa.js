@@ -1,3 +1,3 @@
 export default {
-  // listen: 3000
+  // port: 3000
 };
