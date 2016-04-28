@@ -14,6 +14,10 @@ var _koa = require('koa');
 
 var _koa2 = _interopRequireDefault(_koa);
 
+var _koa3 = require('./config/koa');
+
+var _koa4 = _interopRequireDefault(_koa3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
@@ -43,13 +47,14 @@ var KoaMagnet = function (_Base) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                this.koaConfig = Object.assign(_koa4.default, this.config.koa);
                 // Setup Koa
                 this.app.application = new _koa2.default();
                 this.app.application.on('error', function (err) {
                   _this2.log.error(err);
                 });
 
-              case 2:
+              case 3:
               case 'end':
                 return _context.stop();
             }
@@ -62,6 +67,32 @@ var KoaMagnet = function (_Base) {
       }
 
       return setup;
+    }()
+  }, {
+    key: 'start',
+    value: function () {
+      var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (this.koaConfig.listen) {
+                  this.app.application.listen(this.koaConfig.listen);
+                }
+
+              case 1:
+              case 'end':
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function start() {
+        return ref.apply(this, arguments);
+      }
+
+      return start;
     }()
   }]);
 

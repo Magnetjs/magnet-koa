@@ -17,3 +17,10 @@ let app = await magnet([
 ]);
 // Server running at default port 3000
 ```
+srever/config/koa.js
+```
+export default {
+  // If listen provided then only it will start as server
+  listen: 3000
+}
+```
