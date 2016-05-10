@@ -15,7 +15,15 @@ export default class KoaMagnet extends Base {
   async start() {
     if (this.koaConfig.port) {
       this.app.application.listen(this.koaConfig.port);
-      this.log.info(`Server started at port ${this.koaConfig.port}`);
+      this.consoleInfo(`Server started at port ${this.koaConfig.port}`);
+    }
+  }
+
+  consoleInfo(err) {
+    if (this.app.log) {
+      this.app.log.info(err);
+    } else {
+      console.log(err);
     }
   }
 }
