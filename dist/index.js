@@ -47,7 +47,7 @@ var KoaMagnet = function (_Base) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                this.koaConfig = Object.assign(_koa4.default, this.config.koa);
+                this.koaConfig = Object.assign(_koa4.default, this.config.koa, this.options);
                 // Setup Koa
                 this.app.application = new _koa2.default();
                 this.app.application.on('error', function (err) {
@@ -78,7 +78,7 @@ var KoaMagnet = function (_Base) {
               case 0:
                 if (this.koaConfig.port) {
                   this.app.application.listen(this.koaConfig.port);
-                  this.log.info('Server started at port ' + this.koaConfig.port);
+                  this.consoleInfo('Server started at port ' + this.koaConfig.port);
                 }
 
               case 1:
@@ -95,6 +95,15 @@ var KoaMagnet = function (_Base) {
 
       return start;
     }()
+  }, {
+    key: 'consoleInfo',
+    value: function consoleInfo(err) {
+      if (this.app.log) {
+        this.app.log.info(err);
+      } else {
+        console.log(err);
+      }
+    }
   }]);
 
   return KoaMagnet;
