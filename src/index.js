@@ -8,7 +8,7 @@ export default class KoaMagnet extends Base {
     // Setup Koa
     this.app.application = new Koa();
     this.app.application.on('error', (err) => {
-      this.log.error(err);
+      this.consoleError(err);
     });
   }
 
@@ -24,6 +24,14 @@ export default class KoaMagnet extends Base {
       this.app.log.info(err);
     } else {
       console.log(err);
+    }
+  }
+
+  consoleError(err) {
+    if (this.app.log) {
+      this.app.log.error(err);
+    } else {
+      console.error(err);
     }
   }
 }

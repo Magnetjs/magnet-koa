@@ -51,7 +51,7 @@ var KoaMagnet = function (_Base) {
                 // Setup Koa
                 this.app.application = new _koa2.default();
                 this.app.application.on('error', function (err) {
-                  _this2.log.error(err);
+                  _this2.consoleError(err);
                 });
 
               case 3:
@@ -102,6 +102,15 @@ var KoaMagnet = function (_Base) {
         this.app.log.info(err);
       } else {
         console.log(err);
+      }
+    }
+  }, {
+    key: 'consoleError',
+    value: function consoleError(err) {
+      if (this.app.log) {
+        this.app.log.error(err);
+      } else {
+        console.error(err);
       }
     }
   }]);
