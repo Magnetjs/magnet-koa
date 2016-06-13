@@ -77,7 +77,7 @@ var KoaMagnet = function (_Base) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 if (this.koaConfig.port) {
-                  this.app.application.listen(this.koaConfig.port);
+                  this.app.server = this.app.application.listen(this.koaConfig.port);
                   this.consoleInfo('Server started at port ' + this.koaConfig.port);
                 }
 
