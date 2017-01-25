@@ -1,4 +1,4 @@
-import Base from 'magnet-core/dist/base';
+import Base from 'magnet-core/base';
 import Koa from 'koa';
 import defaultConfig from './config/koa';
 
