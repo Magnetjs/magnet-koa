@@ -10,13 +10,9 @@ var _base = require('magnet-core/base');
 
 var _base2 = _interopRequireDefault(_base);
 
-var _koa = require('koa');
+var _koa = require('./config/koa');
 
 var _koa2 = _interopRequireDefault(_koa);
-
-var _koa3 = require('./config/koa');
-
-var _koa4 = _interopRequireDefault(_koa3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28,38 +24,47 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var KoaMagnet = function (_Base) {
-  _inherits(KoaMagnet, _Base);
+var KoaStart = function (_Base) {
+  _inherits(KoaStart, _Base);
 
-  function KoaMagnet() {
-    _classCallCheck(this, KoaMagnet);
+  function KoaStart() {
+    _classCallCheck(this, KoaStart);
 
-    return _possibleConstructorReturn(this, (KoaMagnet.__proto__ || Object.getPrototypeOf(KoaMagnet)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (KoaStart.__proto__ || Object.getPrototypeOf(KoaStart)).apply(this, arguments));
   }
 
-  _createClass(KoaMagnet, [{
+  _createClass(KoaStart, [{
     key: 'setup',
     value: function () {
       var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
-        var _this2 = this;
-
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                this.koaConfig = Object.assign(_koa4.default, this.config.koa, this.options);
-                // Setup Koa
-                this.app.application = new _koa2.default();
-                this.app.application.on('error', function (err) {
-                  _this2.app.log.error(err);
-                });
+                _context.prev = 0;
 
-              case 3:
+                this.koaConfig = Object.assign(_koa2.default, this.config.koa, this.options);
+
+                if (this.koaConfig.port) {
+                  this.app.server = this.app.application.listen(this.koaConfig.port);
+                  this.log.info('Server started at port ' + this.koaConfig.port);
+                }
+                _context.next = 9;
+                break;
+
+              case 5:
+                _context.prev = 5;
+                _context.t0 = _context['catch'](0);
+
+                this.log.error(_context.t0);
+                throw _context.t0;
+
+              case 9:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee, this, [[0, 5]]);
       }));
 
       function setup() {
@@ -70,7 +75,7 @@ var KoaMagnet = function (_Base) {
     }()
   }]);
 
-  return KoaMagnet;
+  return KoaStart;
 }(_base2.default);
 
-exports.default = KoaMagnet;
+exports.default = KoaStart;

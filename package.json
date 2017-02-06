@@ -1,6 +1,6 @@
 {
   "name": "magnet-koa",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Readme",
   "main": "dist/index.js",
   "scripts": {
@@ -13,18 +13,17 @@
   },
   "keywords": [
     "magnet",
+    "magnetjs",
     "koa"
   ],
-  "author": "Kieve Chua <kievechua@gmail.com>",
+  "author": "Kieve Chua <kievechua@gmail.com> (https://github.com/kievechua)",
   "license": "MIT",
   "files": [
-    "README",
-    "CHANGELOG.md",
     "dist"
   ],
   "dependencies": {
     "koa": "^2.0.0",
-    "magnet-core": "^2.0.0"
+    "magnet-core": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
@@ -38,6 +37,7 @@
     "eslint-config-airbnb": "^6.1.0",
     "eslint-plugin-import": "^1.1.0",
     "nodemon": "^1.9.1",
+    "standard": "^8.6.0",
     "tap-spec": "^4.1.1"
   },
   "repository": {
@@ -56,55 +56,5 @@
     "plugins": [
       "transform-async-to-generator"
     ]
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-airbnb",
-    "env": {
-      "browser": true,
-      "node": true,
-      "mocha": true
-    },
-    "rules": {
-      "import/default": 0,
-      "import/no-duplicates": 0,
-      "import/named": 0,
-      "import/namespace": 0,
-      "import/no-unresolved": 0,
-      "import/no-named-as-default": 2,
-      "jsx-quotes": 2,
-      "block-scoped-var": 0,
-      "padded-blocks": 0,
-      "comma-dangle": 0,
-      "indent": [
-        2,
-        2,
-        {
-          "SwitchCase": 1
-        }
-      ],
-      "no-console": 0,
-      "no-alert": 0
-    },
-    "plugins": [
-      "import"
-    ],
-    "settings": {
-      "import/parser": "babel-eslint",
-      "import/resolve": {
-        "moduleDirectory": [
-          "node_modules",
-          "src"
-        ]
-      }
-    },
-    "globals": {
-      "__DEVELOPMENT__": true,
-      "__CLIENT__": true,
-      "__SERVER__": true,
-      "__DISABLE_SSR__": true,
-      "__DEVTOOLS__": true,
-      "socket": true,
-      "webpackIsomorphicTools": true
-    }
   }
 }
