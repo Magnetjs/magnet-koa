@@ -14,7 +14,7 @@ const koa_2 = require("./config/koa");
 class KoaMagnet extends module_1.Module {
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
-            const config = this.setConfig('koa', koa_2.default);
+            const config = this.prepareConfig('koa', koa_2.default);
             // Setup Koa
             this.app.koa = new koa_1.default();
             this.app.application = this.app.koa; // Backward compatible, maybe remove later

@@ -5,7 +5,7 @@ import defaultConfig from './config/koa'
 
 export default class KoaMagnet extends Module {
   async setup () {
-    const config = this.setConfig('koa', defaultConfig)
+    const config = this.prepareConfig('koa', defaultConfig)
 
     // Setup Koa
     this.app.koa = new Koa()

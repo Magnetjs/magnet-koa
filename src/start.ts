@@ -4,7 +4,7 @@ import defaultConfig from './config/koa'
 export default class KoaStart extends Module {
   async setup () {
     try {
-      const config = this.setConfig('koa', defaultConfig)
+      const config = this.prepareConfig('koa', defaultConfig)
 
       this.app.koaServer = this.app.koa.listen(config.port)
       this.app.server = this.app.koaServer
