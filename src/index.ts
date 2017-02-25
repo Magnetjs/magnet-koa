@@ -1,5 +1,5 @@
 import { Module } from 'magnet-core/module'
-import Koa from 'koa'
+import * as Koa from 'koa'
 
 import defaultConfig from './config/koa'
 
