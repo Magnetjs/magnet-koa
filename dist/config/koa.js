@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    port: 3000
+    port: 3000,
 };
 //# sourceMappingURL=koa.js.map
