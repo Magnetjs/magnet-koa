@@ -1,7 +1,7 @@
 import { Module } from 'magnet-core/module'
 import defaultConfig from './config/koa'
 
-export default class KoaStart extends Module {
+export default class KoaCallback extends Module {
   async setup () {
     const config = this.prepareConfig('koa', defaultConfig)
 

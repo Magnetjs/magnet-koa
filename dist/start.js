@@ -15,9 +15,16 @@ class KoaStart extends module_1.Module {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const config = this.prepareConfig('koa', koa_1.default);
-                this.app.koaServer = this.app.koa.listen(config.port);
-                this.app.server = this.app.koaServer;
-                this.log.info(`Server started at port ${config.port}`);
+                const serverPromise = new Promise((resolve, reject) => {
+                    this.app.koaServer = this.app.koa.listen(config.port, (err) => {
+                        if (err) {
+                            reject(err);
+                            return;
+                        }
+                        this.log.info(`Server started at port ${config.port}`);
+                        resolve();
+                    });
+                });
             }
             catch (err) {
                 this.log.error(err);

@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const module_1 = require("magnet-core/module");
 const koa_1 = require("./config/koa");
-class KoaStart extends module_1.Module {
+class KoaCallback extends module_1.Module {
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
             const config = this.prepareConfig('koa', koa_1.default);
@@ -21,5 +21,5 @@ class KoaStart extends module_1.Module {
         });
     }
 }
-exports.default = KoaStart;
+exports.default = KoaCallback;
 //# sourceMappingURL=callback.js.map
