@@ -1,6 +1,8 @@
 magnet-koa
 ===========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Magnetjs/magnet-koa.svg)](https://greenkeeper.io/)
+
 ### Usage
 Basic
 ```
