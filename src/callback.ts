@@ -1,12 +1,12 @@
 import { Module } from 'magnet-core/module'
-import defaultConfig from './config/koa'
 
-export default class KoaCallback extends Module {
+export default class MagnetKoaCallback extends Module {
+  get moduleName () { return 'koa' }
+  get defaultConfig () { return __dirname }
+
   async setup () {
-    const config = this.prepareConfig('koa', defaultConfig)
+    if (!this.config.magnet) { return }
 
-    if (!config.magnet) { return }
-
-    this.app.config[config.magnet].requestListener = this.app.koa.callback()
+    this.app.config[this.config.magnet].requestListener = this.app.koa.callback()
   }
 }

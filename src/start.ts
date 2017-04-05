@@ -1,22 +1,24 @@
 import { Module } from 'magnet-core/module'
-import defaultConfig from './config/koa'
 
-export default class KoaStart extends Module {
+export default class MagnetKoaStart extends Module {
+  get moduleName () { return 'koa' }
+  get defaultConfig () { return __dirname }
+
   async setup () {
     try {
-      const config = this.prepareConfig('koa', defaultConfig)
-
       const serverPromise = new Promise((resolve, reject) => {
-        this.app.koaServer = this.app.koa.listen(config.port, (err) => {
+        this.app.koaServer = this.app.koa.listen(this.config.port, (err) => {
           if (err) {
             reject(err)
             return
           }
 
-          this.log.info(`Server started at port ${config.port}`)
+          this.log.info(`Server started at port ${this.config.port}`)
           resolve()
         })
       })
+
+      await serverPromise
     } catch (err) {
       this.log.error(err)
       throw err

@@ -1,44 +1,38 @@
 {
   "name": "magnet-koa",
-  "version": "1.4.0",
-  "description": "Readme",
+  "version": "1.5.0",
+  "description": "Magnet adapter for koa",
   "keywords": [
-    "koa",
     "magnet",
-    "magnetjs"
+    "magnetjs",
+    "koa"
   ],
-  "homepage": "https://github.com/Magnetjs/magnet-koa#readme",
+  "homepage": "https://github.com/magnetjs/magnet-koa#readme",
   "bugs": {
-    "url": "https://github.com/Magnetjs/magnet-koa/issues"
+    "url": "https://github.com/magnetjs/magnet-koa/issues"
   },
-  "license": "MIT",
   "author": "Kieve Chua <kievechua@gmail.com> (https://github.com/kievechua)",
-  "main": "dist/index.js",
+  "main": "index.js",
   "repository": "magnetjs/magnet-koa",
   "scripts": {
-    "build": "npm run clean-lib && npm run build:index && npm run copy-package",
-    "build:index": "tsc",
-    "clean-lib": "node_modules/.bin/rimraf ./dist",
-    "copy-package": "cp -rf package.json LICENSE README.md dist",
-    "dist": "npm run build && cd dist && npm publish",
-    "start": "tsc",
-    "watch": "nodemon --ignore dist --exec \"babel src\" --out-dir dist",
-    "watch-all": "concurrently \"npm run watch\" \"npm run watch-test\"",
-    "watch-test": "nodemon --delay 0.5 --ignore src --exec babel-node tests/index.js | tap-spec"
+    "start": "fly",
+    "build": "fly buildAndCopy",
+    "dist": "npm run build && cd dist && npm publish"
   },
   "dependencies": {
-    "@types/node": "^7.0.5",
-    "koa": "^2.0.0",
-    "magnet-core": "^3.3.0",
-    "rimraf": "^2.5.4",
-    "typescript": "^2.2.1"
+    "koa": "^2.2.0",
+    "magnet-core": "^3.8.1"
   },
   "devDependencies": {
-    "concurrently": "^3.3.0",
-    "nodemon": "^1.9.1",
-    "tap-spec": "^4.1.1"
+    "fly": "^2.0.5",
+    "fly-clear": "^1.0.1",
+    "fly-esnext": "^2.0.1",
+    "fly-flatten": "^1.0.1",
+    "fly-typescript": "^1.0.0",
+    "fly-watch": "^1.1.1"
   },
   "engines": {
     "node": ">=6.9.5"
-  }
+  },
+  "license": "MIT"
 }

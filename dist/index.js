@@ -10,19 +10,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const module_1 = require("magnet-core/module");
 const Koa = require("koa");
-const koa_1 = require("./config/koa");
-class KoaMagnet extends module_1.Module {
+class MagnetKoa extends module_1.Module {
+    get moduleName() { return 'koa'; }
+    get defaultConfig() { return __dirname; }
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
-            const config = this.prepareConfig('koa', koa_1.default);
             // Setup Koa
-            this.app.koa = new Koa();
-            this.app.application = this.app.koa; // Backward compatible, maybe remove later
+            this.insert(new Koa());
+            console.log('koa');
             this.app.koa.on('error', (err) => {
                 this.log.error(err);
             });
         });
     }
 }
-exports.default = KoaMagnet;
+exports.default = MagnetKoa;
 //# sourceMappingURL=index.js.map
