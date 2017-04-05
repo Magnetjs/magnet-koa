@@ -9,17 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const module_1 = require("magnet-core/module");
-const koa_1 = require("./config/koa");
-class KoaCallback extends module_1.Module {
+class MagnetKoaCallback extends module_1.Module {
+    get moduleName() { return 'koa'; }
+    get defaultConfig() { return __dirname; }
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
-            const config = this.prepareConfig('koa', koa_1.default);
-            if (!config.magnet) {
+            if (!this.config.magnet) {
                 return;
             }
-            this.app.config[config.magnet].requestListener = this.app.koa.callback();
+            this.app.config[this.config.magnet].requestListener = this.app.koa.callback();
         });
     }
 }
-exports.default = KoaCallback;
+exports.default = MagnetKoaCallback;
 //# sourceMappingURL=callback.js.map
