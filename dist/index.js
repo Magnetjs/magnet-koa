@@ -11,13 +11,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const module_1 = require("magnet-core/module");
 const Koa = require("koa");
 class MagnetKoa extends module_1.Module {
-    get moduleName() { return 'koa'; }
-    get defaultConfig() { return __dirname; }
+    init() {
+        this.moduleName = 'koa';
+        this.defaultConfig = __dirname;
+    }
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
-            // Setup Koa
             this.insert(new Koa());
-            console.log('koa');
             this.app.koa.on('error', (err) => {
                 this.log.error(err);
             });
