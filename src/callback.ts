@@ -1,8 +1,10 @@
 import { Module } from 'magnet-core/module'
 
 export default class MagnetKoaCallback extends Module {
-  get moduleName () { return 'koa' }
-  get defaultConfig () { return __dirname }
+  init () {
+    this.moduleName = 'koa'
+    this.defaultConfig = __dirname
+  }
 
   async setup () {
     if (!this.config.magnet) { return }
