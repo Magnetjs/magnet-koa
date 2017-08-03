@@ -1,6 +1,6 @@
 {
   "name": "magnet-koa",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "Magnet adapter for koa",
   "keywords": [
     "magnet",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "koa": "^2.2.0",
-    "magnet-core": "^3.8.1"
+    "magnet-core": "^4.0.1"
   },
   "devDependencies": {
     "fly": "^2.0.5",
