@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "koa": "^2.2.0",
-    "magnet-core": "^3.8.1"
+    "magnet-core": "^4.0.0"
   },
   "devDependencies": {
     "fly": "^2.0.5",
